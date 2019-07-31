@@ -1,0 +1,12 @@
+select * from employees;
+select EMP_ID, ADDRESS from employees where ADDRESS LIKE '%Elgin,IL%';
+select EMP_ID, B_DATE from employees where B_DATE like '197%';
+select EMP_ID, Salary from employees where (Salary between 60000 and 70000) and DEP_ID=5; 
+select EMP_ID, DEP_ID from employees order by DEP_ID;
+select EMP_ID, DEP_ID, L_Name from employees order by DEP_ID desc, L_Name desc;
+select DEP_ID, count(*) as NUM_Employees from employees group by DEP_ID;
+select DEP_ID, count(*) as NUM_EMployees, AVG(SALARY) as AVG_SALARY from employees group by DEP_ID;
+select DEP_ID, count(*) as NUM_EMployees, AVG(SALARY) as AVG_SALARY from employees group by DEP_ID order by AVG_SALARY;
+select DEP_ID, count(*) as NUM_EMployees, AVG(SALARY) as AVG_SALARY from employees group by DEP_ID having count(*)<4 order by AVG_SALARY;
+select * from Departments; --COPY FROM RESULTS
+select D.DEP_NAME, E.F_NAME, E.L_NAME from Employees as E, Departments as D where E.DEP_ID=D.DEPT_ID_DEP order by D.DEP_NAME, E.L_NAME desc;
